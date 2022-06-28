@@ -1,0 +1,93 @@
+
+{% extends 'plantilla.html' %}
+{% block body %}
+
+    {%with mensajes = get_flashed_messages() %}
+    {%if mensajes%}
+    {%for mensaje in mensajes%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{mensaje}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card cardbody">
+
+                <div class="display-5 text-center text-primary"> Agregar </div>
+
+                <div class="container">
+                <form action="/agregar" method="POST" >
+
+                    <div class="mb-3 mt-3 " >
+                        <label >Titulo: </label>
+                        <input type="text" name="txt_titulo" class="form-control">
+                    </div>
+
+                    <div class="mb-3" >
+                        <label >Artista: </label>
+                        <input type="text" name="txt_artista" class="form-control">
+                    </div>
+
+                    <div class="mb-3" >
+                        <label >Año: </label>
+                        <input type="number" name="txt_anio"  class="form-control">
+                    </div>
+
+                    <div class="mb-3 mb-4 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary"> Guardar </button>
+                    </div>
+
+                </form> 
+            </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <table class="table table-striped table bordered ">
+                <thead>
+                    <tr>
+                        <td>Id:</td>
+                        <td>Album:</td>
+                        <td>Artista:</td>
+                        <td>Año</td>
+                        <td>Operaciones</td>
+                    </tr>
+        
+                </thead>
+        
+                <tbody>
+                    {%for alb in albums %}
+                    <tr>
+                        <td>{{alb.0}}</td>
+                        <td>{{alb.1}}</td>
+                        <td>{{alb.2}}</td>
+                        <td>{{alb.3}}</td>
+                        <td>
+                            <a href="/editar/{{alb.0}}" class="btn btn-warning"> Editar </a>
+                            <a href="/eliminar/{{alb.0}}"class="btn btn-danger"> Borrar </a>
+                        </td>
+        
+                    </tr>
+                    {%endfor%}
+        
+                </tbody>
+        
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+
+    
+
+{% endblock %}
+    

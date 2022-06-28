@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppFlask: Albums</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename= 'css/main.css')}}">
+</head>
+
+<body>
+
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">FlaskApp: Albums</a>
+        </div>
+      </nav>
+      
+
+    <h1 class="display-2 text-center mt-5 mb-5"> Administracion de Albums</h1>
+
+    <div class="container">
+        {% block body%}
+        
+        {% endblock%}
+
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

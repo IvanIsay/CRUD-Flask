@@ -1,0 +1,44 @@
+
+
+{% extends 'plantilla.html' %}
+{% block body %}
+
+<div class="col-md-4 offset-md-4 ">
+
+    <div class="card card-body">
+
+        <div class="display-5 text-center mb-4 text-primary"> Actualizar </div>
+
+        <form action="/actualizar/{{album.0}}" method="POST">
+
+            <div class="mb-3">
+                <label >Titulo: </label>
+                <input type="text" name="txt_titulo"  value="{{album.1}}" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label >Artista: </label>
+                <input type="text" name="txt_artista"  value="{{album.2}}" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label >Año: </label>
+                <input type="number" name="txt_anio" value="{{ album.3}}" class="form-control">
+            </div>
+
+            <div class="mb-3 d-grid gap-2">
+                <button type="submit" class="btn btn-warning"> Actualizar Album </button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+ 
+
+</div>
+
+
+
+{% endblock %}
